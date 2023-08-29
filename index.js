@@ -1,32 +1,50 @@
 /**
  * Recebe um array com os nomes de pessoas e retorna um array invertido
  *
- * @param {Array} people : Um array contendo um conjunto de nomes
+ * @param {*} people : Um array contendo um conjunto de nomes
  * @returns Um array com os nomes invertidos
  */
-function invert(people) {
+function invert(people){
+
+    // TODO
+    // 1) Peça ao usuário para digitar vários nomes. Exiba na tela
+    // todos os nomes digitados, porém de maneira invertida (do último para o primeiro).
+    // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
+    // nomes dos usuários.
+
     return people.reverse();
 }
 
 /**
- * Essa função recebe um array de notas e retorna uma média
+ * Essa função recebe um array de notas e um nome de aluno, e retorna uma string com o nome do aluno, sua média e status de aprovação
  *
  * @param {Array} grades : Um array de notas
- * @returns Uma média a partir do array de notas
+ * @param {String} name : O nome do aluno
+ * @returns Uma string com o nome do aluno, sua média e status de aprovação
  */
-function mean(grades) {
+function mean(grades, name) {
+    name = "Vitória";
     const sum = grades.reduce((total, grade) => total + grade, 0);
-    return sum / grades.length;
+    const average = sum / grades.length;
+    const roundedAverage = Math.round(average * 100) / 100; // Arredondar para duas casas decimais
+    const status = roundedAverage >= 7 ? "Aprovado" : "Reprovado";
+
+    return `Aluno: ${name}\nMédia: ${roundedAverage}\nStatus: ${status}`;
 }
 
 /**
  * Função recebe uma média e informa textualmente se um estudante está aprovado ou não
  *
- * @param {Number} mean : Um número que representa uma média
+ * @param {*} mean : Um número que representa uma média
  * @returns Uma string dizendo se um estudante está aprovado ou não
  */
-function isApproved(mean) {
-    return mean >= 7 ? "Aprovado" : "Reprovado";
+function isApproved(mean){
+
+    // TODO
+    // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
+    // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
+    // ou superior a 7.
+    return 0;
 }
 
 /**
@@ -54,4 +72,4 @@ exports._test = {
     mean: mean,
     isApproved: isApproved,
     wide: wide
-};
+}
