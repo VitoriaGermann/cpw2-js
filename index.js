@@ -23,13 +23,11 @@ function invert(people){
  * @returns Uma string com o nome do aluno, sua média e status de aprovação
  */
 function mean(grades, name) {
-    name = "Vitória";
-    const sum = grades.reduce((total, grade) => total + grade, 0);
-    const average = sum / grades.length;
-    const roundedAverage = Math.round(average * 100) / 100; // Arredondar para duas casas decimais
-    const status = roundedAverage >= 7 ? "Aprovado" : "Reprovado";
-
-    return `Aluno: ${name}\nMédia: ${roundedAverage}\nStatus: ${status}`;
+    
+    var sumGrades = grades[0] + grades[1] + grades[2];
+    var meanGrades = sumGrades/grades.length;
+    
+    return meanGrades;
 }
 
 /**
@@ -44,7 +42,9 @@ function isApproved(mean){
     // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
-    return 0;
+    var result = mean >= 7 ? "aprovado" : "reprovado";
+
+    return result;
 }
 
 /**
@@ -59,11 +59,15 @@ function wide(strDate) {
         "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
     ];
 
-    const [day, month, year] = strDate.split("/");
-    const monthIndex = parseInt(month, 10) - 1;
-    const monthName = months[monthIndex];
+    var date = strDate.split("/");
 
-    return `${day} de ${monthName} de ${year}`;
+    if (months.includes(months[date[1] - 1])) {
+        var wideDate = strDate === "" ? "" : date[0] + " de " + months[date[1] - 1] + " de " + date[2];
+    } else {
+        var wideDate = "";
+    }
+
+    return wideDate;
 }
 
 // Trecho utilizado pelos testes
