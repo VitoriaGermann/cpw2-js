@@ -28,6 +28,7 @@ function mean(grades, name) {
     var meanGrades = sumGrades/grades.length;
     
     return meanGrades;
+    
 }
 
 /**
